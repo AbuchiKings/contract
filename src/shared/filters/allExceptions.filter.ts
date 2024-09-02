@@ -14,7 +14,7 @@ export class AllExceptionsFilter implements ExceptionFilter {
     const response = ctx.getResponse<Response>();
     const statusCode = exception.getStatus();
 
-    let message = exception.getResponse() as {
+    const message = exception.getResponse() as {
       key: string;
       args: Record<string, any>;
     };

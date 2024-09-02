@@ -48,14 +48,15 @@ async function bootstrap() {
   };
 
   app.enableCors(options);
-  app.useGlobalPipes(new ValidationPipe({
-    whitelist: true,
-    transform: true,
-    transformOptions: {
-      enableImplicitConversion: true
-    }
-  }));
-
+  app.useGlobalPipes(
+    new ValidationPipe({
+      whitelist: true,
+      transform: true,
+      transformOptions: {
+        enableImplicitConversion: true,
+      },
+    }),
+  );
 
   await app.listen(port);
   Logger.log(`Server running on ${port}`);

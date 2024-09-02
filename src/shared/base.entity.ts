@@ -9,7 +9,6 @@ import {
 import { IsDateString, IsOptional } from 'class-validator';
 
 export abstract class BaseEntity extends TypeOrmBaseEntity {
-  
   @PrimaryGeneratedColumn('uuid')
   id: string;
 

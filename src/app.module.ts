@@ -1,4 +1,3 @@
-
 import { APP_FILTER } from '@nestjs/core';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
@@ -14,10 +13,7 @@ import { AppService } from './app.service';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      load: [
-        common,
-        typeorm,
-      ],
+      load: [common, typeorm],
       isGlobal: true,
       envFilePath: '.env',
       ...schemaValidation,
@@ -25,7 +21,7 @@ import { AppService } from './app.service';
     TypeOrmModule.forRootAsync({
       inject: [ConfigService],
       useFactory: async (configService: ConfigService) => configService.get('typeorm'),
-    })
+    }),
   ],
   controllers: [AppController],
   providers: [
@@ -33,7 +29,7 @@ import { AppService } from './app.service';
       provide: APP_FILTER,
       useClass: AllExceptionsFilter,
     },
-    AppService
+    AppService,
   ],
   exports: [],
 })

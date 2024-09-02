@@ -1,11 +1,7 @@
 import * as Joi from 'joi';
 
 export default {
-  envFilePath: [
-    '.local.env',
-    '.development.env',
-    '.env',
-  ],
+  envFilePath: ['.local.env', '.development.env', '.env'],
   cache: true,
   isGlobal: true,
   validationSchema: Joi.object({
@@ -30,5 +26,5 @@ export default {
       allowUnknown: true,
       abortEarly: true,
     },
-  })
+  }),
 };
